@@ -1,0 +1,388 @@
+* {
+    
+    box-sizing: border-box;
+    font-family: "Poiret One", sans-serif;
+}
+
+body {
+    background-color: white;
+    
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+.header {
+    min-height: 100vh;                 /* ocupa toda la pantalla */
+    width: 100%;                       /* llega a los lados */
+    margin: 0;
+    padding: 0;
+
+    background-image: url("img/fondo.jpg");
+    background-size: cover;            /* llena toda la sección */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* MENU */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 8px 40px;   /* más delgada */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blueviolet;
+    z-index: 1000;
+}
+
+
+/* LOGO PEQUEÑO DEL MENÚ (ARRIBA) */
+.logo img {
+    height: 70px;   /* tamaño ideal */
+    width: auto;
+}
+
+/* LOGO GRANDE DEL CENTRO */
+.logo-centro {
+    margin-top: 120px;   /* espacio natural debajo del menú */
+    display: flex;
+    justify-content: center;
+}
+
+.logo-centro img {
+    width: 500px;
+    max-width: 80%;
+    height: auto;
+}
+
+/* NAVBAR */
+.navbar ul {
+    display: flex;
+    gap: 15px;               /* un poco más compacto */
+    align-items: center;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+.navbar ul li a {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 12px;       /* más fino */
+    border-radius: 6px;
+    font-size: 16px;         /* tamaño controlado */
+    transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: white;
+    color: blueviolet;
+}
+
+
+/* HEADER INFO */
+.header-info {
+    margin-top: -60px; /* ⬅️ sube el texto junto al logo */
+    text-align: center;
+}
+
+
+.header-info h1 {
+    color: black;
+}
+
+.header-info p {
+    color: black;
+}
+
+
+/* BOTONES */
+.btn-1, .btn-2 {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: rgb(6, 240, 30);
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-volver {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background: #01fc01;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+.btn-1:hover, .btn-2:hover {
+    background-color: #7a2cbf;
+    color: white;
+}
+
+/* PRODUCTOS */
+.productos {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.productos h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.galeria img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* INFO */
+.info {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.info h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.info p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.info ul {
+    margin-bottom: 30px;
+}
+
+/* FOOTER / CONTACTO */
+.footer {
+    background-color: #e6e6e6;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+
+.contacto-form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: black;
+}
+
+/* ===============================
+   RESPONSIVE - CELULAR (MENÚ FIX)
+=============================== */
+@media (max-width: 768px) {
+
+    /* BARRA MORADA MÁS DELGADA */
+    .menu {
+        padding: 8px 20px;      /* antes muy alta */
+    }
+
+    /* BOTÓN HAMBURGUESA */
+    .menu-toggle {
+        display: block;
+        font-size: 28px;        /* tamaño normal */
+    }
+
+    /* MENÚ DESPLEGADO */
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: blueviolet;
+        text-align: center;
+        padding: 10px 0;        /* menos alto */
+    }
+
+    /* LISTA */
+    .navbar ul {
+        flex-direction: column;
+        gap: 6px;               /* antes enorme */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* CADA OPCIÓN */
+    .navbar ul li {
+        padding: 6px 0;         /* más compacto */
+    }
+
+    /* LINKS */
+    .navbar ul li a {
+        display: block;
+        color: black;
+        font-size: 16px;        /* tamaño correcto */
+        padding: 8px 0;         /* fino, no gigante */
+    }
+
+    /* CUANDO SE ABRE */
+    .navbar.active {
+        display: block;
+        max-height: 260px;      /* evita menú gigante */
+        overflow-y: auto;
+    }
+}
+
+.redes-sociales {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    background-color: blueviolet;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.redes-sociales a:hover {
+    background-color: #7a2cbf;
+    color: white;
+}
+
+/* ===============================
+   BOTÓN VOLVER (WEB)
+=============================== */
+.btn-volver {
+    position: fixed;
+    top: 90px; /* baja para que no choque con el menú */
+    left: 20px;
+    z-index: 2000; /* encima de todo */
+}
+
+/* ===============================
+   MENÚ MÁS COMPACTO
+=============================== */
+.menu {
+    padding: 10px 40px; /* antes estaba muy alto */
+}
+
+/* LOGO DEL MENÚ */
+.logo img {
+    height: 70px; /* antes 100px */
+}
+
+/* ===============================
+   GESTOR DE TAREAS
+=============================== */
+#tabla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f4f4;
+}
+
+#tabla h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#inputTarea {
+    width: 280px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+#listaTareas {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 320px;
+}
+
+#listaTareas li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+/* BOTONES DE TAREAS */
+#listaTareas button {
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#listaTareas button:nth-child(1) {
+    background: #00e676; /* terminar */
+}
+
+#listaTareas button:nth-child(2) {
+    background: #ffd54f; /* editar */
+}
+
+#listaTareas button:nth-child(3) {
+    background: #ff5252; /* eliminar */
+    color: white;
+}
+
+/* ===============================
+   RESPONSIVE EXTRA
+=============================== */
+@media (max-width: 480px) {
+
+    .logo-centro img {
+        width: 300px;
+    }
+
+    #listaTareas {
+        width: 90%;
+    }
+}
